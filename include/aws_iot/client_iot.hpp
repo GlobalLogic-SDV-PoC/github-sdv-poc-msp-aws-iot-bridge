@@ -24,7 +24,7 @@ public:
                         std::string_view ca_path,
                         std::string_view client_id_path) override;
     ~ClientIot();
-
+    ClientIot();
 private:
     std::string m_endpoint_path;
     std::string m_cert_path;

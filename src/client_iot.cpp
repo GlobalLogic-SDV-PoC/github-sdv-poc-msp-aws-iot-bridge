@@ -230,4 +230,5 @@ void ClientIot::setCredentials(std::string_view endpoint_path,
 }
 
 ClientIot::~ClientIot() = default;
+ClientIot::ClientIot() = default;
 }  // namespace aws_iot
