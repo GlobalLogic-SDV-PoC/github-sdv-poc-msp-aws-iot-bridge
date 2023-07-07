@@ -216,17 +216,13 @@ void ClientIot::setOnReceivedHandler(const on_received_handler& handler)
 {
     m_handler = handler;
 }
-void ClientIot::setCredentials(std::string_view endpoint_path,
-                               std::string_view cert_path,
-                               std::string_view key_path,
-                               std::string_view ca_path,
-                               std::string_view client_id_path)
+void ClientIot::setConfig(const nlohmann::json& config)
 {
-    m_endpoint_path = endpoint_path;
-    m_cert_path = cert_path;
-    m_key_path = key_path;
-    m_ca_path = ca_path;
-    m_client_id_path = client_id_path;
+    m_endpoint_path = config["endpoint"];
+    m_cert_path = config["certificate"];
+    m_key_path = config["private"];
+    m_ca_path = config["root"];
+    m_client_id_path =  config["clientId"];
 }
 
 ClientIot::~ClientIot() = default;

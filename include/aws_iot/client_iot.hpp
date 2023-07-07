@@ -18,11 +18,7 @@ public:
     void unsubscribe(std::string_view topic) override;
     void publish(std::string_view topic, std::string_view payload) override;
     void setOnReceivedHandler(const on_received_handler& handler) override;
-    void setCredentials(std::string_view endpoint_path,
-                        std::string_view cert_path,
-                        std::string_view key_path,
-                        std::string_view ca_path,
-                        std::string_view client_id_path) override;
+    void setConfig(const nlohmann::json& config) override;
     ~ClientIot();
     ClientIot();
 private:
