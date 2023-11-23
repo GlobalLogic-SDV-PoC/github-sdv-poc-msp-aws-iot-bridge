@@ -1,0 +1,3 @@
+[submodule "dep/external/aws"]
+	path = dep/external/aws
+	url = https://github.com/awslabs/aws-crt-cpp.git
