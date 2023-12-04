@@ -1,0 +1,86 @@
+version: '1.0'
+
+cloud_providers:
+  AWS:
+    parameters:
+      region_name: 'eu-west-1'
+
+scvcf_config_variables:
+  CLOUD_PROVIDER:
+    CONVERTER: StringConverter
+    VALIDATOR: OptionalValidator
+  IS_DEBUG:
+    CONVERTER: BoolConverter
+    VALIDATOR: OptionalValidator
+  TIMEOUT_CLI_CMD_EXEC:
+    CONVERTER: IntConverter
+    VALIDATOR: OptionalValidator
+  TEST_DATA_PATH:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  RUN_MODE:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  PYTHON_VERSION:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  TC_ADAPTERS:
+    CONVERTER: ArrayConverter
+    VALIDATOR: OptionalValidator
+  ARTIFACTS_FOLDER:
+    CONVERTER: PathConverter
+    VALIDATOR: OptionalValidator
+  WB_JSON_FILE:
+    CONVERTER: PathConverter
+    VALIDATOR: OptionalValidator
+  DOCKER_START_TIMEOUT:
+    CONVERTER: IntConverter
+    VALIDATOR: NotNoneValidator
+  DEFAULT_LOG_TIMEOUT:
+    CONVERTER: IntConverter
+    VALIDATOR: NotNoneValidator
+  DATACOLLECTOR_DOCKER_TAG:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  PLATFORM:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  IOTBRIDGE_DOCKER_TAG:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  OTAUPDATER_DOCKER_TAG:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  AWS_REGION:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  Account_ID:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  IOTBRIDGE_AWS_CERTS_FOLDER:
+    CONVERTER: PathConverter
+    VALIDATOR: NotNoneValidator
+  IOTBRIDGE_CONFIG_FOLDER:
+    CONVERTER: PathConverter
+    VALIDATOR: NotNoneValidator
+
+
+default_values:
+  CLOUD_PROVIDER: 'AWS'
+  IS_DEBUG: True
+  TIMEOUT_CLI_CMD_EXEC: 10
+  TEST_DATA_PATH: "tests/data"
+  RUN_MODE: debug
+  PYTHON_VERSION: "3.11.4"
+  TC_ADAPTERS: []
+  ARTIFACTS_FOLDER: "tests/reports/artifacts"
+  DOCKER_START_TIMEOUT: 60
+  DEFAULT_LOG_TIMEOUT: 10
+  DATACOLLECTOR_DOCKER_TAG: "3fde085eeb566d9fe83bffa01e6592b6046984fb"
+  PLATFORM: "raspberry"
+  IOTBRIDGE_DOCKER_TAG: "latest"
+  OTAUPDATER_DOCKER_TAG: "latest"
+  AWS_REGION: "eu-west-1"
+  Account_ID: "203647640528"
+  IOTBRIDGE_AWS_CERTS_FOLDER: "thirdparty/sdv_testing_tool/sdv_testing_tool/applications/services/iot_bridge/aws/docker/docker_volumes/certs"
+  IOTBRIDGE_CONFIG_FOLDER: "thirdparty/sdv_testing_tool/sdv_testing_tool/applications/services/iot_bridge/aws/docker/docker_volumes/configs"

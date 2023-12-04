@@ -1,0 +1,23 @@
+# pyproject.toml
+[sdvcf.testing.framework]
+sdvcf_config_file = "tests/iot-bridge-config.yaml"
+sdvcf_config_type = "yaml"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = [
+    "tests"
+]
+pythonpath = [
+  "."
+]
+
+addopts = "-p thirdparty.sdv_testing_tool -ra --self-contained-html --html=tests/reports/pytest-report-local.html --capture=tee-sys -W ignore::DeprecationWarning -W ignore::pytest.PytestUnknownMarkWarning"
+
+markers = [
+    "integration: Integration test scenarios",
+    "component: Component test scenarios",
+    "unit: Unit test scenarios",
+    "IComponent: Interface for general components",
+    "DeployConfigUtils: Utils class"
+]
