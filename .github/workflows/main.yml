@@ -37,5 +37,5 @@ jobs:
     - name: Test with pytest
       run: |
         echo 1
-        pytest -m component
+        python -m pytest -m "component"
     
