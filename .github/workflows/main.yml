@@ -27,12 +27,15 @@ jobs:
     needs: test-job-2
     runs-on: ubuntu-latest
     steps:
+    - name: checkout all the submodules
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
     - uses: actions/checkout@v3
     - name: Set up Python 3.11.4
       uses: actions/setup-python@v3
       with:
         python-version: "3.11"
-      uses: snickerbockers/submodules-init@v4
     - name: Test with pytest
       run: |
         pip install -r ./thirdparty/sdv_testing_tool/requirements.txt
