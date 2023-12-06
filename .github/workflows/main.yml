@@ -36,6 +36,7 @@ jobs:
     #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        echo 1
-        python -m pytest -m "component"
+        pip install -e .
+        pip install -r ./thirdparty.sdv_testing_tool/requirements.txt
+        pytest -m "component"
     
