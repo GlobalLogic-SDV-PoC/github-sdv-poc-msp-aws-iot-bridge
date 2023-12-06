@@ -1,4 +1,4 @@
-name: Python application
+name: IOT BRIDGE
 
 on:
   push:
@@ -6,29 +6,28 @@ on:
   pull_request:
     branches: [ "test_submodule" ]
 
-permissions:
-  contents: read
-
 jobs:
   test-job:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Test command
+    - name: Test command 1
       run: echo "test-job-1"
       shell: bash
 
   test-job-2:
+    needs: test-job
     runs-on: ubuntu-latest
     steps:
-    - name: Test command
+    - name: Test command 2
       run: echo "test-job-2"
       shell: bash
 
   build:
+    needs: test-job-2
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@test_submodule
+    - uses: actions/checkout@v3
     - name: Set up Python 3.11.4
       uses: actions/setup-python@v3
       with:
@@ -38,6 +37,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Test with pytest
       run: |
         # pip install -e .
