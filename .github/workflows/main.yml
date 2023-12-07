@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
     - name: Component Testing
       run: |
         echo "component tests running..."
@@ -22,6 +24,7 @@ jobs:
     needs: component-testing
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - name: Integration Testing
       run: |
         echo "integration tests running..."
@@ -33,6 +36,7 @@ jobs:
     needs: integration-testing
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - name: System Testing
       run: |
         echo "system tests running..."
@@ -49,13 +53,12 @@ jobs:
       with:
         submodules: recursive
     - uses: actions/checkout@v3
-    - name: Set up Python 3.11.4
+    - name: Set up Python 3.11
       uses: actions/setup-python@v3
       with:
         python-version: "3.11"
     - name: Test with pytest
       run: |
         pip install -r ./thirdparty/sdv_testing_tool/requirements.txt
-        # pytest -m "component"
         echo 1
     
