@@ -1,6 +1,6 @@
-[submodule "dep/internal/iot"]
-	path = dep/internal/iot
-	url = codecommit::eu-west-1://msp-iot-bridge
+# [submodule "dep/internal/iot"]
+# 	path = dep/internal/iot
+# 	url = codecommit::eu-west-1://msp-iot-bridge
 [submodule "dep/external/gtest"]
 	path = dep/external/gtest
 	url = https://github.com/google/googletest.git
