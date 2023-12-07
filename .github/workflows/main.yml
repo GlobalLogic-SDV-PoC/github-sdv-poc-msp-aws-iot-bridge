@@ -7,12 +7,27 @@ on:
     branches: [ "test_submodule" ]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.11"
+    - name: checkout all the submodules
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: Test with pytest
+      run: |
+        pip install -r ./thirdparty/sdv_testing_tool/requirements.txt
+        echo 1
+
   component-testing:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-      with:
-        submodules: recursive
     - name: Component Testing
       run: |
         echo "component tests running..."
@@ -43,22 +58,4 @@ jobs:
         echo "system tests done."
         # pytest -m "system"
       shell: bash
-
-  build:
-    needs: system-testing
-    runs-on: ubuntu-latest
-    steps:
-    - name: checkout all the submodules
-      uses: actions/checkout@v3
-      with:
-        submodules: recursive
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.11"
-    - name: Test with pytest
-      run: |
-        pip install -r ./thirdparty/sdv_testing_tool/requirements.txt
-        echo 1
     
