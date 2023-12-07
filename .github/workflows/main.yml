@@ -7,24 +7,41 @@ on:
     branches: [ "test_submodule" ]
 
 jobs:
-  test-job:
+  component-testing:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Test command 1
-      run: echo "test-job-1"
+    - name: Component Testing
+      run: |
+        echo "component tests running..."
+        echo "component tests done."
+        # pytest -m "component"
       shell: bash
 
-  test-job-2:
-    needs: test-job
+  integration-testing:
+    needs: component-testing
     runs-on: ubuntu-latest
     steps:
-    - name: Test command 2
-      run: echo "test-job-2"
+    - name: Integration Testing
+      run: |
+        echo "integration tests running..."
+        echo "integration tests done."
+        # pytest -m "integration"
+      shell: bash
+
+  system-testing:
+    needs: integration-testing
+    runs-on: ubuntu-latest
+    steps:
+    - name: System Testing
+      run: |
+        echo "system tests running..."
+        echo "system tests done."
+        # pytest -m "system"
       shell: bash
 
   build:
-    needs: test-job-2
+    needs: system-testing
     runs-on: ubuntu-latest
     steps:
     - name: checkout all the submodules
