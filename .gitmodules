@@ -1,7 +1,7 @@
 [submodule "dep/internal/iot"]
 	path = dep/internal/iot
-	url = ssh://APKAS62SYMPIOE3IQOSH@git-codecommit.eu-west-1.amazonaws.com/v1/repos/msp-iot-bridge
-	# url = codecommit::eu-west-1://msp-iot-bridge
+	url = codecommit::eu-west-1://msp-iot-bridge
+	# url = ssh://APKAS62SYMPIOE3IQOSH@git-codecommit.eu-west-1.amazonaws.com/v1/repos/msp-iot-bridge
 	# ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/msp-iot-bridge
 	# url = https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/msp-iot-bridge
 [submodule "dep/external/gtest"]
