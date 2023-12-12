@@ -63,7 +63,18 @@ scvcf_config_variables:
   IOTBRIDGE_CONFIG_FOLDER:
     CONVERTER: PathConverter
     VALIDATOR: NotNoneValidator
-
+  INTEGRATION_STRATEGY:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  IOT_BRIDGE_REPO_URL:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  OTA_UPDATER_REPO_URL:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
+  DATA_COLLECTOR_REPO_URL:
+    CONVERTER: StringConverter
+    VALIDATOR: NotNoneValidator
 
 default_values:
   CLOUD_PROVIDER: 'AWS'
@@ -84,3 +95,7 @@ default_values:
   Account_ID: "203647640528"
   IOTBRIDGE_AWS_CERTS_FOLDER: "thirdparty/sdv_testing_tool/sdv_testing_tool/applications/services/iot_bridge/aws/docker/docker_volumes/certs"
   IOTBRIDGE_CONFIG_FOLDER: "thirdparty/sdv_testing_tool/sdv_testing_tool/applications/services/iot_bridge/aws/docker/docker_volumes/configs"
+  INTEGRATION_STRATEGY: "pull"
+  IOT_BRIDGE_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
+  OTA_UPDATER_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
+  DATA_COLLECTOR_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
