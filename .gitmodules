@@ -1,3 +1,6 @@
-[submodule "dep/external/aws"]
-	path = dep/external/aws
+[submodule "github-sdv-poc-msp-iot-bridge"]
+	path = github-sdv-poc-msp-iot-bridge
+	url = git@github.com:GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge.git
+[submodule "aws_iot/dep/external/aws"]
+	path = aws_iot/dep/external/aws
 	url = https://github.com/awslabs/aws-crt-cpp.git

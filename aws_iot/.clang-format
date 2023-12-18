@@ -1,10 +1,11 @@
 ---
+BasedOnStyle: Google
+
 AccessModifierOffset: -4
 AlignTrailingComments: true
 AllowShortFunctionsOnASingleLine: true
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: true
-BasedOnStyle: Google
 BinPackParameters: false
 BreakBeforeBinaryOperators: true
 BreakBeforeBraces: Allman
