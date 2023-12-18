@@ -84,7 +84,7 @@ AwsClientIotImpl::AwsClientIotImpl(const std::string& endpoint,
             if (eventData.publishPacket != nullptr)
             {
                 RCLCPP_FATAL(m_ctx->node->get_logger(), "publish received on topic: %s", eventData.publishPacket->getTopic().c_str());
-                // SPDLOG_TRACE("message: {}", std::string(reinterpret_cast<char*>(eventData.publishPacket->getPayload().ptr), eventData.publishPacket->getPayload().len));
+                RCLCPP_DEBUG(m_ctx->node->get_logger(),"message: %s", std::string(reinterpret_cast<char*>(eventData.publishPacket->getPayload().ptr), eventData.publishPacket->getPayload().len).c_str());
 
                 for (Aws::Crt::Mqtt5::UserProperty prop : eventData.publishPacket->getUserProperties())
                 {
