@@ -15,15 +15,15 @@ void AwsClientIot::disconnect()
 {
     m_impl.reset();
 }
-void AwsClientIot::subscribe(iotb::Span topic)
+void AwsClientIot::subscribe(std::string topic)
 {
     m_impl->subscribe(topic);
 }
-void AwsClientIot::unsubscribe(iotb::Span topic)
+void AwsClientIot::unsubscribe(std::string topic)
 {
     m_impl->unsubscribe(topic);
 }
-void AwsClientIot::publish(iotb::Span topic, iotb::Span payload)
+void AwsClientIot::publish(std::string topic, std::string payload)
 {
     m_impl->publish(topic, payload);
 }

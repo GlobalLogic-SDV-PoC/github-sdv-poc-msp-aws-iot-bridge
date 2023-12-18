@@ -24,9 +24,9 @@ public:
                   const std::shared_ptr<iotb::Context>& ctx,
                   const onReceivedHandler& handler);
     ~AwsClientIotImpl();
-    void subscribe(iotb::Span topic);
-    void unsubscribe(iotb::Span topic);
-    void publish(iotb::Span topic, iotb::Span payload);
+    void subscribe(std::string topic);
+    void unsubscribe(std::string topic);
+    void publish(std::string topic, std::string payload);
 
 protected:
     Aws::Crt::ApiHandle m_handle;
