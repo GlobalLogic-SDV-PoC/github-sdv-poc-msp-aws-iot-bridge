@@ -75,6 +75,9 @@ scvcf_config_variables:
   DATA_COLLECTOR_REPO_URL:
     CONVERTER: StringConverter
     VALIDATOR: NotNoneValidator
+  # DOCKER_REGISTRY:
+  #   CONVERTER: StringConverter
+  #   VALIDATOR: NotNoneValidator
 
 default_values:
   CLOUD_PROVIDER: 'AWS'
@@ -99,3 +102,4 @@ default_values:
   IOT_BRIDGE_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
   OTA_UPDATER_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
   DATA_COLLECTOR_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
+  # DOCKER_REGISTRY: "203647640528.dkr.ecr.eu-west-1.amazonaws.com/raspberry-aws-iot-bridge"
