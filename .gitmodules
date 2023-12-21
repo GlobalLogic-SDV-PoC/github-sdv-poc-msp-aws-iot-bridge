@@ -11,5 +11,5 @@
 	path = dep/external/aws_crt
 	url = https://github.com/awslabs/aws-crt-cpp.git
 [submodule "thirdparty/sdv_testing_tool"]
-	path = thirdparty/sdv_testing_tool
+	path = dep/internal/sdv_testing_tool
 	url = git@portal-ua.globallogic.com:sdv-core/sdv-testing-tool.git

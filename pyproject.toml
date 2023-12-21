@@ -17,7 +17,4 @@ addopts = "-p thirdparty.sdv_testing_tool -ra --self-contained-html --html=tests
 markers = [
     "integration: Integration test scenarios",
     "component: Component test scenarios",
-    "unit: Unit test scenarios",
-    "IComponent: Interface for general components",
-    "DeployConfigUtils: Utils class"
 ]

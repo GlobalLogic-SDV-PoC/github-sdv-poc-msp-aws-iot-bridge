@@ -2,14 +2,25 @@ import re
 
 import pytest
 
-from thirdparty.sdv_testing_tool.sdv_testing_tool.config.config import CONFIG
-from thirdparty.sdv_testing_tool.sdv_testing_tool.enums.marks import TC_ID, PrimaryComponent, Priority, Suite, SweLevel, Tasks
-from thirdparty.sdv_testing_tool.sdv_testing_tool.helpers.customize_marks import SDVMarks
-from thirdparty.sdv_testing_tool.sdv_testing_tool.helpers.helpers import get_utc_time_now
-from thirdparty.sdv_testing_tool.sdv_testing_tool.providers.service.logger import SDVLogger
-from tests.data.test_cases_data import ram_testdata_negative, ram_testdata_positive, temp_testdata_negative, temp_testdata_positive
+from ...thirdparty.sdv_testing_tool.sdv_testing_tool.config.config import CONFIG
+from ...thirdparty.sdv_testing_tool.sdv_testing_tool.enums.marks import TC_ID, PrimaryComponent, Priority, Suite, SweLevel, Tasks
+from ...thirdparty.sdv_testing_tool.sdv_testing_tool.helpers.customize_marks import SDVMarks
+from ...thirdparty.sdv_testing_tool.sdv_testing_tool.helpers.helpers import get_utc_time_now
+from ...thirdparty.sdv_testing_tool.sdv_testing_tool.providers.service.logger import SDVLogger
+from ...tests.data.test_cases_data import ram_testdata_negative, ram_testdata_positive, temp_testdata_negative, temp_testdata_positive
 
 LOGGER = SDVLogger.get_logger("test-IOT_BRIDGE")
+
+@SDVMarks.links("TASK_999")
+@SDVMarks.add(
+    SweLevel.COMPONENT,
+    Priority.P1,
+    PrimaryComponent.IOT_BRIDGE,
+    Suite.REGRESSION,
+    TC_ID.SDV_00004,
+)
+def test_iotb_temp_negative_999(iot_bridge_dc_iot_thing):
+    pass
 
 
 @SDVMarks.links("TASK_126")
