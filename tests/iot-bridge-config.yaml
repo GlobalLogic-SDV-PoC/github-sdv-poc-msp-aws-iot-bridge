@@ -36,19 +36,13 @@ scvcf_config_variables:
   DOCKER_START_TIMEOUT:
     CONVERTER: IntConverter
     VALIDATOR: NotNoneValidator
+  DOCKER_BUILD_TIMEOUT:
+    CONVERTER: IntConverter
+    VALIDATOR: NotNoneValidator
   DEFAULT_LOG_TIMEOUT:
     CONVERTER: IntConverter
     VALIDATOR: NotNoneValidator
-  DATACOLLECTOR_DOCKER_TAG:
-    CONVERTER: StringConverter
-    VALIDATOR: NotNoneValidator
   PLATFORM:
-    CONVERTER: StringConverter
-    VALIDATOR: NotNoneValidator
-  IOTBRIDGE_DOCKER_TAG:
-    CONVERTER: StringConverter
-    VALIDATOR: NotNoneValidator
-  OTAUPDATER_DOCKER_TAG:
     CONVERTER: StringConverter
     VALIDATOR: NotNoneValidator
   AWS_REGION:
@@ -57,13 +51,6 @@ scvcf_config_variables:
   Account_ID:
     CONVERTER: StringConverter
     VALIDATOR: NotNoneValidator
-  IOTBRIDGE_AWS_CERTS_FOLDER:
-    CONVERTER: PathConverter
-    VALIDATOR: NotNoneValidator
-  IOTBRIDGE_CONFIG_FOLDER:
-    CONVERTER: PathConverter
-    VALIDATOR: NotNoneValidator
-
   # iot bridge integration strategy block
   IOT_BRIDGE_INTEGRATION_STRATEGY:
     CONVERTER: StringConverter
@@ -72,12 +59,12 @@ scvcf_config_variables:
     CONVERTER: StringConverter
     VALIDATOR: ConditionalMandatoryValidator
     IF_OPTIONS_SET_TO: 
-      IOT_BRIDGE_INTEGRATION_STRATEGY: 'pull'
+      IOT_BRIDGE_INTEGRATION_STRATEGY: 'build'
   IOT_BRIDGE_DOCKER_REGISTRY:
     CONVERTER: StringConverter
     VALIDATOR: ConditionalMandatoryValidator
     IF_OPTIONS_SET_TO: 
-      IOT_BRIDGE_INTEGRATION_STRATEGY: 'build'
+      IOT_BRIDGE_INTEGRATION_STRATEGY: 'pull'
   IOT_BRIDGE_CHECKOUT_UNIT:
     CONVERTER: StringConverter
     VALIDATOR: NotNoneValidator
@@ -90,12 +77,12 @@ scvcf_config_variables:
     CONVERTER: StringConverter
     VALIDATOR: ConditionalMandatoryValidator
     IF_OPTIONS_SET_TO: 
-      OTA_UPDATER_INTEGRATION_STRATEGY: 'pull'
+      OTA_UPDATER_INTEGRATION_STRATEGY: 'build'
   OTA_UPDATER_DOCKER_REGISTRY:
     CONVERTER: StringConverter
     VALIDATOR: ConditionalMandatoryValidator
     IF_OPTIONS_SET_TO: 
-      OTA_UPDATER_INTEGRATION_STRATEGY: 'build'
+      OTA_UPDATER_INTEGRATION_STRATEGY: 'pull'
   OTA_UPDATER_CHECKOUT_UNIT:
     CONVERTER: StringConverter
     VALIDATOR: NotNoneValidator
@@ -108,12 +95,12 @@ scvcf_config_variables:
     CONVERTER: StringConverter
     VALIDATOR: ConditionalMandatoryValidator
     IF_OPTIONS_SET_TO: 
-      DATA_COLLECTOR_INTEGRATION_STRATEGY: 'pull'
+      DATA_COLLECTOR_INTEGRATION_STRATEGY: 'build'
   DATA_COLLECTOR_DOCKER_REGISTRY:
     CONVERTER: StringConverter
     VALIDATOR: ConditionalMandatoryValidator
     IF_OPTIONS_SET_TO: 
-      DATA_COLLECTOR_INTEGRATION_STRATEGY: 'build'
+      DATA_COLLECTOR_INTEGRATION_STRATEGY: 'pull'
   DATA_COLLECTOR_CHECKOUT_UNIT:
     CONVERTER: StringConverter
     VALIDATOR: NotNoneValidator
@@ -128,24 +115,20 @@ default_values:
   TC_ADAPTERS: []
   ARTIFACTS_FOLDER: "tests/reports/artifacts"
   DOCKER_START_TIMEOUT: 60
+  DOCKER_BUILD_TIMEOUT: 30
   DEFAULT_LOG_TIMEOUT: 10
-  DATACOLLECTOR_DOCKER_TAG: "3fde085eeb566d9fe83bffa01e6592b6046984fb"
-  PLATFORM: "raspberry"
-  IOTBRIDGE_DOCKER_TAG: "latest"
-  OTAUPDATER_DOCKER_TAG: "latest"
+  PLATFORM: "docker"
   AWS_REGION: "eu-west-1"
   Account_ID: "203647640528"
-  IOTBRIDGE_AWS_CERTS_FOLDER: "thirdparty/sdv_testing_tool/sdv_testing_tool/applications/services/iot_bridge/aws/docker/docker_volumes/certs"
-  IOTBRIDGE_CONFIG_FOLDER: "thirdparty/sdv_testing_tool/sdv_testing_tool/applications/services/iot_bridge/aws/docker/docker_volumes/configs"
   
   IOT_BRIDGE_INTEGRATION_STRATEGY: "build"
-  IOT_BRIDGE_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
+  IOT_BRIDGE_REPO_URL: "git@github.com:GlobalLogic-SDV-PoC/github-sdv-poc-msp-aws-iot-bridge.git"  # TODO add valid link
   IOT_BRIDGE_CHECKOUT_UNIT: "main"
 
   OTA_UPDATER_INTEGRATION_STRATEGY: "build"
-  OTA_UPDATER_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
+  OTA_UPDATER_REPO_URL: "git@github.com:GlobalLogic-SDV-PoC/github-sdv-poc-msp-aws-iot-bridge.git"  # TODO add valid link
   OTA_UPDATER_CHECKOUT_UNIT: "main"
 
   DATA_COLLECTOR_INTEGRATION_STRATEGY: "build"
-  DATA_COLLECTOR_REPO_URL: "https://github.com/GlobalLogic-SDV-PoC/github-sdv-poc-msp-iot-bridge"  # TODO add valid link
+  DATA_COLLECTOR_REPO_URL: "git@github.com:GlobalLogic-SDV-PoC/github-sdv-poc-msp-aws-iot-bridge.git"  # TODO add valid link
   DATA_COLLECTOR_CHECKOUT_UNIT: "main"

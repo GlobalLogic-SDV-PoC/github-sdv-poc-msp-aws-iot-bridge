@@ -12,7 +12,7 @@ pythonpath = [
   "."
 ]
 
-addopts = "-p thirdparty.sdv_testing_tool -ra --self-contained-html --html=tests/reports/pytest-report-local.html --capture=tee-sys -W ignore::DeprecationWarning -W ignore::pytest.PytestUnknownMarkWarning"
+addopts = "-p dep.internal.sdv_testing_tool -ra --self-contained-html --html=tests/reports/pytest-report-local.html --capture=tee-sys -W ignore::DeprecationWarning -W ignore::pytest.PytestUnknownMarkWarning"
 
 markers = [
     "integration: Integration test scenarios",
