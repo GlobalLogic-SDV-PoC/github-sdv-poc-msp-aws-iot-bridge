@@ -17,14 +17,14 @@ void AwsClientIot::disconnect()
 }
 void AwsClientIot::subscribe(std::string topic)
 {
-    m_impl->subscribe(topic);
+    m_impl->subscribe(std::move(topic));
 }
 void AwsClientIot::unsubscribe(std::string topic)
 {
-    m_impl->unsubscribe(topic);
+    m_impl->unsubscribe(std::move(topic));
 }
 void AwsClientIot::publish(std::string topic, std::string payload)
 {
-    m_impl->publish(topic, payload);
+    m_impl->publish(std::move(topic), std::move(payload));
 }
 }  // namespace aws_iot
