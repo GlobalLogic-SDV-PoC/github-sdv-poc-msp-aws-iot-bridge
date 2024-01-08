@@ -4,7 +4,6 @@
 #include <aws/crt/mqtt/Mqtt5Packets.h>
 #include <aws/iot/Mqtt5Client.h>
 
-#include <cassert>
 #include <iotb/client_iot.hpp>
 #include <iotb/context.hpp>
 #include <memory>
